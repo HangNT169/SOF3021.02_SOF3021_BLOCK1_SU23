@@ -12,4 +12,6 @@ public interface SinhVienService {
 
     SinhVien detailSinhVien(String ma);
 
+    void deleteSinhVien(String ma);
+
 }

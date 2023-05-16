@@ -39,4 +39,10 @@ public class SinhVienServiceImpl implements SinhVienService {
         return null;
     }
 
+    @Override
+    public void deleteSinhVien(String ma) {
+        SinhVien sv = detailSinhVien(ma);
+        listSinhVien.remove(sv);
+    }
+
 }

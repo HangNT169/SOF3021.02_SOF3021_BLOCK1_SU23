@@ -67,10 +67,16 @@ public class SinhVienController {
     }
 
     @GetMapping("/sinh-vien/view-update/{maSV}")
-    public String viewUpdate(@PathVariable("maSV") String ma,Model model){
+    public String viewUpdate(@PathVariable("maSV") String ma, Model model) {
         SinhVien sinhVien = sinhVienService.detailSinhVien(ma);
         model.addAttribute("sv", sinhVien);
         return "/buoi3/update-sinh-vien";
+    }
+
+    @GetMapping("delete/{ma}")
+    public String deleteSinhVien(@PathVariable("ma") String ma) {
+        sinhVienService.deleteSinhVien(ma);
+        return "redirect:/sinh-vien/hien-thi";
     }
 //    @GetMapping("/demo11")
 //    @ResponseBody // nhan danh dau => Day la API => Json
