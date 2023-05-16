@@ -17,12 +17,26 @@ public class SinhVienServiceImpl implements SinhVienService {
         listSinhVien.add(new SinhVien("HE130463", "Nguyen Anh Dung", 15, "Ha Noi3", true));
         listSinhVien.add(new SinhVien("HE130464", "Vu Van Nguyen", 14, "Ha Noi6", true));
         listSinhVien.add(new SinhVien("HE130465", "Tran Tuan Phong", 20, "Ha Noi7", true));
-
     }
 
     @Override
     public List<SinhVien> getAll() {
         return listSinhVien;
+    }
+
+    @Override
+    public void addSinhVien(SinhVien sinhVien) {
+        listSinhVien.add(sinhVien);
+    }
+
+    @Override
+    public SinhVien detailSinhVien(String ma) {
+        for (SinhVien sv : listSinhVien) {
+            if (sv.getMssv().equalsIgnoreCase(ma)) {
+                return sv;
+            }
+        }
+        return null;
     }
 
 }

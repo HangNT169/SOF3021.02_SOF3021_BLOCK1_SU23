@@ -8,4 +8,8 @@ public interface SinhVienService {
 
     List<SinhVien>getAll();
 
+    void addSinhVien(SinhVien sinhVien);
+
+    SinhVien detailSinhVien(String ma);
+
 }
