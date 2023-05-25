@@ -1,0 +1,8 @@
+package com.fpt.poly.sof3021.B7_Bean_DI_IOC.c1;
+
+public class TrangPhuc {
+
+    public void wear(){
+        System.out.println("Mac quan ao11111111");
+    }
+}
