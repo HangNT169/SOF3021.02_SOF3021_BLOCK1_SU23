@@ -29,6 +29,6 @@ public class Category {
     private String categoryCode;
 
     @Column(name = "category_name")
-    private String categoryName;
+    private String categoryName1;
 
 }

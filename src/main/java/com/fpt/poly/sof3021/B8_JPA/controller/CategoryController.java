@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -17,10 +18,17 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @GetMapping("/hienthi")
-    public String hienThi(Model model){
-        List<Category>categoryList = categoryService.getAll();
-        model.addAttribute("danhSach",categoryList);
+    public String hienThi(Model model) {
+        List<Category> categoryList = categoryService.getAll();
+        model.addAttribute("danhSach", categoryList);
 
         return "/buoi8/theloai";
     }
+
+    @ResponseBody
+    @GetMapping("/phan-trang")
+    public List<Category> phanTrang(@RequestParam(value = "pageNo",defaultValue = "0") Integer page) {
+        return categoryService.phanTrang(page, 2).getContent();
+    }
+
 }
